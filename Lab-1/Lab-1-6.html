@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab-1-6</title>
+</head>
+<body>
+    <script>
+        let n = parseInt(prompt("Enter the Number : "));
+        let temp = n ,r = 0, res = 0;
+        while (n>0) {
+            r = n % 10;
+            res = res + r*r*r ;
+            n = n/10;
+        }
+        if(res === temp){
+            alert("Armstrong");
+        }else{
+            alert("not a Armstrong");   
+        }
+    </script>
+</body>
+</html>

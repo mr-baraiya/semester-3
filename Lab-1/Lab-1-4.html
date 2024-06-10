@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAB-1-4</title>
+</head>
+<body>
+    <script>
+        let n = parseInt(prompt("Enter the Number of terms in fibonacci series : "));
+        let start=0,end=1,sum=0;
+        document.write("0 , 1");
+        for(let i = 1;i<=n-2;i++){
+            sum = start + end;
+            start = end;
+            end = sum;
+            document.write(" , "+sum);
+            sum = 0; 
+        }
+    </script>
+</body>
+</html>
