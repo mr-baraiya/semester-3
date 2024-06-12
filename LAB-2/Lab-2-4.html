@@ -9,12 +9,12 @@
     <script>
         let a = parseInt(prompt("Enter the first number : "));
         let b = parseInt(prompt("Enter the sacond number : "));
-        let n1 = a;
-        let n2 = b;
-        while(b){
-            let temp = b;
-            b = a % b;
-            a = temp;
+        let n1 = a;//6
+        let n2 = b;//12
+        while(b){//12,6
+            let temp = b;//12,6
+            b = a % b;//6 
+            a = temp;///12
         }
         document.write("GCD of "+n1+" and "+n2+" = "+a);
     </script>
