@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab-3-2</title>
+</head>
+<body>
+    <script>
+       let n = parseInt(prompt("Enter the size of an array : "));
+        let arr = new Array(n);
+        for(let i=0 ; i<n ; i++){
+            arr[i] = parseInt(prompt("Enter the number in "+i+"th index = "));
+        }
+        for(let i=0 ; i<n-1 ; i++){
+            for(let j=i+1 ; j<n ;j++){
+                let temp = 0;
+                if(arr[i]>arr[j]){
+                    temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+        document.write("Sorted Array : "+"<br/>");
+        for(let i=0 ; i<n ; i++){
+            document.write(arr[i]+"<br/>");
+        }
+    </script>
+</body>
+</html>
