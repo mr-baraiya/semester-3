@@ -7,10 +7,17 @@
 </head>
 <body>
     <script>
-        let n = parseInt(prompt("Enter the size of an array : "));
+        let n = parseInt(prompt("Enter the number of words in sentence : "));
         let arr = new Array(n);
         for(let i = 0 ; i<n ; i++){
-            arr[i] = parseInt(prompt("Enter the number in "+i+"th index = "));
+            arr[i] = parseInt(prompt("Enter the word in "+i+"th index = "));
+        }
+        let word = prompt("Enter the word you want to search : ");
+        for(let i=0;i<n;i++){
+            if(word === arr[i]){
+                alert("Index = "+i);
+                break;
+            }
         }
     </script>
 </body>
