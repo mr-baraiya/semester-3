@@ -1,1 +1,1 @@
-DSA , Web Technology , DBMS-1 , OAT are available in branches.
+DSA , Web Technology , DBMS-1 are available in branches.
