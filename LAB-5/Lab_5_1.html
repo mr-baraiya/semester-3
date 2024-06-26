@@ -6,68 +6,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculater</title>
 </head>
-<style>
-    table {
-        border: 1px solid black;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    input[type="text"] {
-        padding: 20px 30px;
-        font-size: 24px;
-        font-weight: bold;
-        border: none;
-        border-radius: 5px;
-        border: 2px solid black;
-    }
-
-    input[type="button"] {
-        width: 100%;
-        padding: 20px 40px;
-        color: white;
-        background-attachment: fixed;
-        background-color: rgb(196, 133, 152);
-        font-size: 24px;
-        font-weight: bold;
-        border: none;
-        border-radius: 5px;
-    }
-</style>
-
+<link href="Lab_5_1.css" rel="stylesheet">
 <body>
-    <h1>This Is My Calculater</h1>
+    <div class="calcHeading">
+        <h1>Calculater</h1>
+    </div>
     <table>
         <tr>
-            <td colspan="3"><input type="text" id="result" placeholder="Enter the Number"></td>
-            <td><input type="button" value="C" id="c" onclick="clr()"></td>
+            <td colspan="4"><input type="text" id="result" placeholder="Enter the Number"></td>
         </tr>
         <tr>
-            <td><input type="button" value="1" id="val1" onclick="display('1')" onkeydown="myFunction(event)"></td>
-            <td><input type="button" value="2" id="val2" onclick="display('2')" onkeydown="myFunction(event)"></td>
-            <td><input type="button" value="3" id="val3" onclick="display('3')" onkeydown="myFunction(event)"></td>
-            <td> <input type="button" value="+" id="valPlus" onclick="display('+')" onkeydown="myFunction(event)"></td>
-        </tr>
-        <tr>
-            <td><input type="button" value="4" id="val4" onclick="display('4')" onkeydown="myFunction(event)"></td>
-            <td> <input type="button" value="5" id="val5" onclick="display('5')" onkeydown="myFunction(event)"></td>
-            <td><input type="button" value="6" id="val6" onclick="display('6')" onkeydown="myFunction(event)"></td>
-            <td><input type="button" value="-" id="valPMinus" onclick="display('-')" onkeydown="myFunction(event)"></td>
+            <td colspan="2"><input type="button" value="AC" id="ac" onclick="clr()"></td>
+            <td><input type="button" value="X" id="x" onclick="clrOneLast()"></td>
+            <td><input type="button" value="+" id="valPlus" onclick="display('+')" onkeydown="myFunction(event)"></td>
         </tr>
         <tr>
             <td><input type="button" value="7" id="val7" onclick="display('7')" onkeydown="myFunction(event)"></td>
             <td><input type="button" value="8" id="val8" onclick="display('8')" onkeydown="myFunction(event)"></td>
             <td><input type="button" value="9" id="val9" onclick="display('9')" onkeydown="myFunction(event)"></td>
+            <td><input type="button" value="-" id="valPMinus" onclick="display('-')" onkeydown="myFunction(event)"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="4" id="val4" onclick="display('4')" onkeydown="myFunction(event)"></td>
+            <td><input type="button" value="5" id="val5" onclick="display('5')" onkeydown="myFunction(event)"></td>
+            <td><input type="button" value="6" id="val6" onclick="display('6')" onkeydown="myFunction(event)"></td>
             <td><input type="button" value="*" id="valMul" onclick="display('*')" onkeydown="myFunction(event)"></td>
         </tr>
         <tr>
-            <td><input type="button" value="00" id="val00" onclick="display('00')" onkeydown="myFunction(event)"></td>
-            <td><input type="button" value="0" id="val0" onclick="display('0')" onkeydown="myFunction(event)"></td>
-            <td><input type="button" value="=" id="" onclick="solve()"></td>
+            <td><input type="button" value="1" id="val1" onclick="display('1')" onkeydown="myFunction(event)"></td>
+            <td><input type="button" value="2" id="val2" onclick="display('2')" onkeydown="myFunction(event)"></td>
+            <td><input type="button" value="3" id="val3" onclick="display('3')" onkeydown="myFunction(event)"></td>
             <td><input type="button" value="/" id="valDivide" onclick="display('/')" onkeydown="myFunction(event)"></td>
         </tr>
+        <tr>
+            <td><input type="button" value="." id="valpoint" onclick="display('.')" onkeydown="myFunction(event)"></td>
+            <td><input type="button" value="0" id="val0" onclick="display('0')" onkeydown="myFunction(event)"></td>
+            <td><input type="button" value="00" id="val00" onclick="display('00')" onkeydown="myFunction(event)"></td>
+            <td><input type="button" value="=" id="equalto" onclick="solve()"></td>
+        </tr>
     </table>
-    <script src="Lab_5_1.js"></script>
+    
+    <!-- Scripting will start -->
+    <script>
+        let result = document.getElementById("result");
+        function display(val) { 
+            result.value += val;
+        } 
+        function myFunction(event) { 
+            if (event.key == '0' || event.key == '1' || event.key == '2' || event.key == '3' 
+                || event.key == '4' || event.key == '5' || event.key == '6' || event.key == '7' 
+                || event.key == '8' || event.key == '9' || event.key == '+' || event.key == '-' 
+                || event.key == '*' || event.key == '/' || event.key == ".") 
+                result.value += event.key; 
+        } 
+        function solve() { 
+            let x = document.getElementById("result").value;
+            try{
+                let y = eval(x); 
+            }catch(e){
+                console.log("Error!");
+            }
+            result.value = y;
+        } 
+        function clr() { 
+            result.value = "";
+        } 
+        function clrOneLast(){
+            result
+        }
+    </script>
 </body>
 
 </html>
