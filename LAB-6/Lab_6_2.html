@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAB-6-2</title>
+    <style>
+        button{
+            height: 50px;
+            width: 100px;
+            background-color: aqua;
+            border: 2px solid black;
+            border-radius: 10px;
+            font-family: sans-serif;
+            font-size: larger;
+        }
+        button:hover{
+            border: 3px solid black;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+    <button>click me!</button>
+    <p>Mouse Events</p>
+    <div id="myDiv" style="font-size: 30px; font-family: sans-serif; font-weight: 900;">
+        
+    </div>
+    <script>
+        function display(temp){
+            document.getElementById('myDiv').innerHTML = "Mouse Events : "+ temp ;
+        }
+        document.addEventListener('click', () => display('Click'));
+        document.addEventListener('contextmenu', () => display('context menu'));
+        document.addEventListener('dblclick', () => display('double click'));
+        document.addEventListener('mousedown', () => display('mouse down'));
+        document.addEventListener('mouseenter', () => display('mouse enter'));
+        document.addEventListener('mouseleave', () => display('mouse leave'));
+        document.addEventListener('mousemove', () => display('mouse move'));
+        document.addEventListener('mouseover', () => display('mouse over'));
+        document.addEventListener('mouseout', () => display('mouse out'));
+        document.addEventListener('mouseup', () => display('mouse up'));
+       
+    </script>
+</body>
+</html>
