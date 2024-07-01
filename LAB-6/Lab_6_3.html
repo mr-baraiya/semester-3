@@ -12,14 +12,15 @@
     </div>
     <script>
         function display(temp){
-            document.getElementById('myDiv').innerHTML = "Key Board Events : "+ temp ;
+            document.querySelector('#myDiv').innerHTML = "Key Board Event : "+ temp;
         }
-        document.addEventListener('keydown', () => display('Key down'));
-        document.addEventListener('keypress', () => display('Key press'));
-        document.addEventListener('keyup', () => display('Key up'));
-        document.addEventListener('altKey', () => display('alt Key'));
-        document.addEventListener('charCode', () => display('char Code'));
-       
+        document.addEventListener('keydown',(e) => {
+            console.log(e);
+            display(e.key);
+        });
+        // document.addEventListener('keydown', () => display('Key down'));
+        // document.addEventListener('keypress', () => display('Key press'));
+        // document.addEventListener('keyup', () => display('Key up'));
     </script>
 </body>
 </html>
