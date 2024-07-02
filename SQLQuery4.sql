@@ -114,14 +114,42 @@ INSERT INTO EMPLOYEE_MASTER VALUES
 SELECT * FROM EMPLOYEE_MASTER;
 
 --1. Delete all the records of Employee_MASTER table having salary greater than and equals to 14000.
+DELETE FROM EMPLOYEE_MASTER
+WHERE SALARY >= 14000;
+
+SELECT * FROM EMPLOYEE_MASTER;
 --2. Delete all the Employees who belongs to ‘RAJKOT’ city.
+DELETE FROM EMPLOYEE_MASTER
+WHERE CITY = 'RAJKOT';
+
+SELECT * FROM EMPLOYEE_MASTER;
 --3. Delete all the Employees who joined after 1-1-2007.
+DELETE FROM EMPLOYEE_MASTER
+WHERE JOININGDATE > '2007-01-01';
+
+SELECT * FROM EMPLOYEE_MASTER;
 --4. Delete the records of Employees whose joining date is null and Name is not null.
+DELETE FROM EMPLOYEE_MASTER
+WHERE JOININGDATE IS NULL AND EMPNAME IS NOT NULL;
+
+SELECT * FROM EMPLOYEE_MASTER;
 --5. Delete the records of Employees whose salary is 50% of 20000.
+DELETE FROM EMPLOYEE_MASTER
+WHERE SALARY = 20000*50/100;
+
+SELECT * FROM EMPLOYEE_MASTER;
 --6. Delete the records of Employees whose City Name is not empty.
+DELETE FROM EMPLOYEE_MASTER
+WHERE CITY = '';
+
+SELECT * FROM EMPLOYEE_MASTER;
 --7. Delete all the records of Employee_MASTER table. (Use Truncate)
+TRUNCATE TABLE EMPLOYEE_MASTER;
+
+SELECT * FROM EMPLOYEE_MASTER;
 --8. Remove Employee_MASTER table. (Use Drop)
+DROP TABLE EMPLOYEE_MASTER;
 
 --Part – C:
 
---1. Summarize Delete, Truncate and Drop
+--1. Summarize Delete, Truncate and Drop--DELETE delete the row with condition--TRUNCETE delete the row with OUT condition--DROP delete the table with data and schima
