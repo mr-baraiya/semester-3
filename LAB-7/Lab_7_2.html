@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAB-7-2</title>
+</head>
+<body>
+    <script>
+        //let no scope in block {}
+        //var no scope in function
+        //const ni value change na thay , block scope
+        function myFunction(){
+            a = 10;//global variable
+            var b = 5;//b no scope in function
+            const c = 10;// block scope
+            let add = () => {
+                let x = 5;//x scope in {}
+                let y = 10;//b scope in {}
+                console.log("x+y = "+(x+y));
+            }
+            console.log("a + b + c = "+(a+b+c));
+            console.log("b = "+b);
+        }
+        myFunction();
+        console.log("a = "+a);
+    </script>
+</body>
+</html>
