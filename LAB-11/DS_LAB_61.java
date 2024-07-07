@@ -1,7 +1,7 @@
-//Write a program to implement stack using singly linked list.
+// Write a program to implement queue using singly linked list.
 import java.util.Scanner;
 
-class Stack{
+class Queue{
     class Node{
         int data;
         Node link;
@@ -10,44 +10,49 @@ class Stack{
             this.link = null;
         }
     }
-    Node TOP;
-    public Stack(){
-        this.TOP = null;
+    Node FRONT,REAR;
+    public Queue(){
+        this.FRONT = null;
+        this.REAR = null;
     }
     public void PUSH(int data){
         Node newNode = new Node(data);
-        newNode.link = TOP;
-        TOP = newNode;
-    }
-    public boolean isEmpty(){
-        return TOP == null;
+        if(REAR == null){
+            FRONT = newNode;
+            REAR = newNode;
+        }
+        REAR.link = newNode;
+        REAR = newNode;
     }
     public int POP(){
-        if(TOP == null){
-            System.out.println("Stack Underflow!");
+        if(FRONT == null){
             return -1;
         }
-        int temp = TOP.data;
-        TOP = TOP.link;
-        return temp;
+        Node temp = FRONT;
+        FRONT = FRONT.link;
+        if(FRONT == null){
+            REAR = null;
+        }
+        return temp.data;
     }
     public void display(){
         System.out.println();
-        if(TOP == null){
-            System.out.println("Stack Underflow!");
+        if(FRONT == null){
+            System.out.println("Queue is Empty!");
             return;
         }
-        Node temp = TOP;
+        Node temp = FRONT;
         while (temp != null) {
-            System.out.println(temp.data);
+            System.out.print(temp.data+" ");
             temp = temp.link;
         }
+        System.out.println();
     }
 }
-public class DS_LAB_60 {
+public class DS_LAB_61 {
     public static void main(String[] args) {
         Scanner sc =new Scanner(System.in);
-        Stack stack = new Stack();
+        Queue queue = new Queue();
         int temp=0,n=0;
         while(temp != -1){
             System.out.println("Enter 1 = PUSH , 2 = POP , 0 = DISPLAY , -1 = terminate the Program.");
@@ -56,14 +61,14 @@ public class DS_LAB_60 {
                 case 1:
                     System.out.println("Enter the element to be pushed :");
                     n = sc.nextInt();
-                    stack.PUSH(n); 
+                    queue.PUSH(n); 
                     break;
                 case 2:
-                    n = stack.POP();
+                    n = queue.POP();
                     System.out.println("POP : "+n);
                     break;
                 case 0:
-                    stack.display();
+                    queue.display();
                     break;
                 case -1:
                     break;    
