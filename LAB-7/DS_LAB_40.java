@@ -1,3 +1,6 @@
+/*Write a program to determine if an input character string is of the form aibi
+where i >= 1 i.e., Number of ‘a’ should be equal to number of ‘b’*/
+
 import java.util.Scanner;
 
 class Stack {

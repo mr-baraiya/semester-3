@@ -1,5 +1,29 @@
+/*. Chef has a string which contains only the characters '{', '}', '[', ']', '(' and ')'. Now 
+Chef wants to know if the given string is balanced or not. If is balanced then 
+print 1, otherwise print 0.
+ A balanced parenthesis string is defined as follows:
+oThe empty string is balanced
+oIf P is balanced then (P), {P}, [P] is also balanced
+oif P and Q are balanced PQ is also balanced
+o"([])", "({})[()]" are balanced parenthesis strings 
+o"([{]})", "())" are not balanced.
+ Input: The first line of the input contains a single integer T denoting the 
+number of test cases. The description of T test cases follows. The first 
+and only line of each test case contains a single string
+ Output: For each test case, print a single line containing the answer.
+ Example of Input & Output
+oInput:
+ Enter No of Test Cases: 4
+ ()
+ ([)]
+ ([{}()])[{}]
+ [{{}]
+oOutput
+ 1
+ 0
+ 1
+ 0 */
 import java.util.Scanner;
-
 
 class Stack {
     int top = -1;
@@ -41,7 +65,8 @@ public class DS_LAB_41 {
             System.out.println("Enter a string: ");
             String str = scanner.next();
             if(str.length()%2 == 1) {
-                System.out.println(0);
+                System.out.println("0");
+                return;
             }
             else {
                 Stack stack = new Stack(str.length());
@@ -64,10 +89,10 @@ public class DS_LAB_41 {
                     }
                 }
                 if(flag) {
-                    System.out.println(1);
+                    System.out.println("1");
                 }
                 else {
-                    System.out.println(0);
+                    System.out.println("0");
                 }
             }
         }

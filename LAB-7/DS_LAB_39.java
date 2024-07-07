@@ -1,3 +1,5 @@
+/*How stack can be used to recognize strings aca, bcb, abcba, abbcbba? Write a 
+program to solve the above problem. */
 import java.util.Scanner;
 
 class Stack {
@@ -50,7 +52,7 @@ public class DS_LAB_39 {
             stack.push(str.charAt(index));
             index++;
         }
-        index++;
+        index++;//for include index of c
         
         while(index < str.length()) {
             char ch = stack.pop();
