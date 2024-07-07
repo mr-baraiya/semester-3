@@ -1,14 +1,13 @@
+class Node{
+    int data;
+    Node link;
+    public Node(int data){
+        this.data = data;
+        this.link = null;
+    }
+}
 public class LinkedList{
     Node FIRST = null;
-    class Node{
-        int data;
-        Node link;
-        public Node(int data){
-            this.data = data;
-            this.link = null;
-        }
-    }
-
     public void display(){
         System.out.println();
         if(FIRST == null){
@@ -170,20 +169,5 @@ public class LinkedList{
             count++;
         }
         return count;
-    }
-    public boolean isSame (Node temp , int pos){
-        if(pos == 1){
-            if(FIRST.data == temp.data){
-                return true;
-            }
-        }
-        Node SAVE = FIRST;
-        for(int i=1 ; i<pos-1;i++){
-            SAVE = SAVE.link;
-        }
-        if(SAVE.data == temp.data){
-            return true;
-        }
-        return false;
     }
 }

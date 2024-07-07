@@ -1,3 +1,4 @@
+//Write a program to count the number of nodes in a singly linked list.
 import java.util.Scanner;
 public class DS_LAB_58 {
     public static void main(String[] args) {

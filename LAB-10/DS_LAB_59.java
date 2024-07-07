@@ -1,3 +1,5 @@
+//WAP to check whether 2 singly linked lists are same or not.
+
 import java.util.Scanner;
 public class DS_LAB_59 {
     public static void main(String[] args) {
@@ -10,26 +12,30 @@ public class DS_LAB_59 {
         int [] arr2 = {1,2,3,4,6};
         for(int i=0 ;i<arr1.length ;i++){
             list1.insertAtFirst(arr1[i]);
-            list2.insertAtFirst(arr1[i]);
+            list2.insertAtFirst(arr2[i]);
 
         }
         list1.display();
         list2.display();
+        if(compareList(list1, list2)){
+            System.out.println("Both List are Same.");
+        }else{
+            System.out.println("Both List are Not Same.");
+        }
+    }
 
-        boolean flag = false;
-        if(list1.length() != list2.length()){
-            flag = false;
-        }else{
-            for(int i=1 ; i <= list1.length() ;i++){
-                list1.iisSame(list2., i)
-            }
-        }
-        if(flag){
-            System.out.println("List Are Same.");
-        }else{
-            System.out.println("List Are Not Same.");
-        }
+    public static boolean compareList(LinkedList list1,LinkedList list2){
+        Node temp1 = list1.FIRST;
+        Node temp2 = list2.FIRST;
         
+        while (temp1 != null && temp2 != null) {
+            if(temp1.data != temp2.data){
+                return false;
+            }
+            temp1 = temp1.link;
+            temp2 = temp2.link;
+        }
 
+        return temp1 == null && temp2 == null;
     }
 }
