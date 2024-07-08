@@ -48,31 +48,17 @@ public class LinkedList{
     }
     public void insertInOrder(int data){
         Node newNode = new Node(data);
-        if(FIRST == null){
-            FIRST = newNode;
-            return;
-        }
-        if(newNode.data<(FIRST.link).data){
+        if(FIRST == null || newNode.data <= FIRST.data){
             newNode.link = FIRST;
             FIRST = newNode;
             return;
         }
         Node temp = FIRST;
-        while (temp != null) {
-            System.out.println(temp.data);
+        while(temp.link != null && temp.link.data <= newNode.data){
             temp = temp.link;
         }
-        if(newNode.data > temp.data){
-            temp.link = newNode;
-            return;
-        }
-        temp = FIRST;
-        while(temp.link.data < newNode.data){
-            temp = temp.link;
-        }
-        Node temp2 = temp.link;
+        newNode.link  = temp.link;
         temp.link = newNode;
-        newNode.link = temp2;
         return;
     }
     public void insertAtPosition(int pos,int data){
@@ -209,16 +195,23 @@ public class LinkedList{
         if(FIRST == null){
             return;
         }
-        Node temp = FIRST;
-        Node next = null;
-        while(temp != null){
-            next = temp.link;
-            while(next != null && next.data < temp.data){
-                temp.link = next.link;
-                next.link = temp;
-                temp = next;
+        Node LAST = FIRST;
+        while(LAST != null){
+            LAST = LAST.link;
+        }
+        Node current = FIRST,SAVE = null;
+        int temp;
+        while (current!=null) {
+            SAVE = current.link;
+            while (SAVE!=null) {
+                if(current.data > SAVE.data){
+                    temp = current.data;
+                    current.data = SAVE.data;
+                    SAVE.data = temp;
+                }
+                SAVE = SAVE.link;
             }
-            next = temp.link;
+            current = current.link;
         }
     }
 }
