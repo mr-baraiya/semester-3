@@ -13,6 +13,7 @@ public class DS_LAB_63 {
         LinkedList list2 = new LinkedList();
         list2 = copyLinkedList(list);
         list2.display();
+        sc.close();
     }
 
     public static LinkedList copyLinkedList(LinkedList list){

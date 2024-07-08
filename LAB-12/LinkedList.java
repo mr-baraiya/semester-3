@@ -74,15 +74,16 @@ public class LinkedList{
             temp = temp.link;
             count++;
         }
-        if(pos <= 0 || pos > count){
+        if(pos <= 0 || pos > count+1){
             System.out.println("The Given Position is out of LinkedList range.");
             return;
         }
-        temp = FIRST;
-        while (temp.link != null) {
-            temp = temp.link;
-        }
-        if(pos == count){
+        
+        if(pos == count+1){
+            temp = FIRST;
+            while (temp.link != null) {
+                temp = temp.link;
+            }
             temp.link = newNode;
             return;
         }
@@ -194,11 +195,7 @@ public class LinkedList{
     public void sortList(){
         if(FIRST == null){
             return;
-        }
-        Node LAST = FIRST;
-        while(LAST != null){
-            LAST = LAST.link;
-        }
+        } 
         Node current = FIRST,SAVE = null;
         int temp;
         while (current!=null) {
