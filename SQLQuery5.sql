@@ -81,7 +81,7 @@ WHERE ADDRESS LIKE '%-%';
 
 --2. Display all the students whose address contains single quote or double quote.
 SELECT FIRSTNAME FROM STUDENT
-WHERE ADDRESS LIKE '%''%' OR ADDRESS LIKE '%"%';
+WHERE ADDRESS LIKE '%''%''%' OR ADDRESS LIKE '%"%"%';
 
 --3. Display all the students whose website contains @.
 SELECT FIRSTNAME FROM STUDENT
