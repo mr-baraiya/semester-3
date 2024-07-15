@@ -1,5 +1,4 @@
-//Write a program to convert infix notation to postfix notation using stack.
-
+//Write a program to convert infix notation to prefix notation using stack.
 import java.util.Scanner;
 
 class Stack {
@@ -47,16 +46,38 @@ class Stack {
         }
     }
 }
-public class DS_LAB_45{
+public class DS_LAB_46 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the Infix Expression : ");
-        String exp = sc.next();
-        String res = revpol(exp);
-        System.out.println("Postfix : "+res);
+        // System.out.println("Enter the Infix Expression : ");
+        // String exp = sc.next();
+        String exp = "(a+b*c/d-e+f/g/(h+i))";
+        exp = reverseInfix(exp);
+        System.out.println("Reverse exp : "+exp);
+        exp = revpol(exp);
+        System.out.println("Postfix exp : "+exp);
+        String res = reverseInfix(exp);
+        System.out.println("Prefix : "+res);
         sc.close();
     }
-
+    public static String reverseInfix(String exp){
+        String res = "";
+        for(int i=exp.length()-1;i>=0;i--){
+            char temp = exp.charAt(i);
+            switch(temp){
+                case '(':
+                res += ')';
+                break;
+                case ')':
+                res += '(';
+                break;
+                default:
+                res += temp;
+                break; 
+            }
+        }
+        return res;
+    }
     public static String revpol(String exp){
         exp += ')';
         String polish = "";
