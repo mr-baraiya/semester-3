@@ -1,4 +1,7 @@
 //Write a program to convert infix notation to postfix notation using stack.
+
+import java.util.Scanner;
+
 class Stack {
     int TOP = -1;
     int SIZE = 0;
@@ -46,47 +49,49 @@ class Stack {
 }
 public class DS_LAB_45{
     public static void main(String[] args) {
-        String exp = "a+b*c-d/e";
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the Infix Expression : ");
+        String exp = sc.next();
         String res = revpol(exp);
         System.out.println(res);
     }
 
     public static String revpol(String exp){
         exp += ')';
-        String postfix = "";
+        String polish = "";
         int rank = 0 , i = 0;
-        Stack s = new Stack(exp.length());
-        s.PUSH('(');
-        char next = exp.charAt(i);
-        while(next != ' '){
-            if(s.TOP < 1){
-                System.out.println("INVALID");
-                return null;
+        Stack stack = new Stack(exp.length());
+        stack.PUSH('(');
+        char next;
+        while(i < exp.length()){ 
+            next = exp.charAt(i);
+            i++;
+            if(stack.TOP < 0){
+                System.out.println("INVALID1");
+                return " ";
             }
-            while(getStackPrecedence(s.PEEK()) > getInputPrecedence(next)){
-                char temp = s.POP();
-                postfix += temp;
+            while(getStackPrecedence(stack.PEEK()) > getInputPrecedence(next)){
+                char temp = stack.POP();
+                polish += temp;
                 rank += getRank(temp);
                 if(rank < 1){
-                    System.out.println("INVALID");
-                    return null;
+                    System.out.println("INVALI2");
+                    return " ";
                 } 
             }
-            if(getStackPrecedence(s.PEEK()) != getInputPrecedence(next)){
-                s.PUSH(next);
+            if(getStackPrecedence(stack.PEEK()) != getInputPrecedence(next)){
+                stack.PUSH(next);
             }else{
-                s.POP();
+                stack.POP();
             }
-            next = exp.charAt(++i);
         }
-        if(s.TOP != 0 || rank != 1){
-            System.out.println("INVALID");
-        }else{
-            System.out.println("VALID");
+        if(stack.TOP != -1 || rank != 1){
+            System.out.println("INVALID3");
+            return " ";
         }
-        return postfix;
+        System.out.println("VALID");
+        return polish;
     }
-
     public static int getInputPrecedence(char temp){
         switch(temp){
             case '+':
@@ -105,7 +110,6 @@ public class DS_LAB_45{
             return 7;
         }
     }
-
     public static int getStackPrecedence(char temp){
         switch(temp){
             case '+':
@@ -122,7 +126,6 @@ public class DS_LAB_45{
             return 8;
         }
     }
-
     public static int getRank(char temp){
         switch(temp){
             case '+':
@@ -134,6 +137,5 @@ public class DS_LAB_45{
             default : 
             return 1;
         }
-
     }
 }
