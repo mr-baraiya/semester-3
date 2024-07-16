@@ -211,4 +211,52 @@ public class LinkedList{
             current = current.link;
         }
     }
+    public void addGCD(){
+        if(FIRST == null){
+            System.out.println("List is Empty.");
+            return;
+        }
+        Node next = FIRST.link;
+        Node prev = FIRST;
+        while(next != null){
+            int min = Math.min(next.data, prev.data);
+            int gcd = 1;
+            for(int i=min;i>0;i--){
+                if(next.data % i == 0 && prev.data % i == 0){
+                    gcd = i;
+                    break;
+                }
+            }
+            Node newNode = new Node(gcd);
+            prev.link = newNode;
+            newNode.link = next;
+            prev = next;
+            next = next.link;
+        }
+
+    }
+    public void swapConsucativeNode(){
+        if(FIRST == null || FIRST.link == null){
+            return;
+        }
+        Node temp = FIRST;
+        Node next = FIRST.link;
+        Node prev = null;
+        while(temp.link != null){
+            temp.link = next.link;
+            next.link = temp;
+            if(temp == FIRST){
+                FIRST = next;
+            }else{
+                prev.link = next;
+            }
+            prev = temp;
+
+            temp = temp.link;
+            if(temp.link != null){
+                return;
+            }
+            next = temp.link;
+        }
+    }
 }
