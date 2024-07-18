@@ -49,9 +49,8 @@ class Stack {
 public class DS_LAB_46 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        // System.out.println("Enter the Infix Expression : ");
-        // String exp = sc.next();
-        String exp = "(a+b*c/d-e+f/g/(h+i))";
+        System.out.println("Enter the Infix Expression : ");
+        String exp = sc.next();
         exp = reverseInfix(exp);
         System.out.println("Reverse exp : "+exp);
         exp = revpol(exp);
@@ -118,12 +117,12 @@ public class DS_LAB_46 {
         switch(temp){
             case '+':
             case '-':
-            return 1;
+            return 2;
             case '*':
             case '/':
-            return 3;
+            return 4;
             case '^':
-            return 6;
+            return 5;
             case '(':
             return 9;
             case ')':
@@ -136,12 +135,12 @@ public class DS_LAB_46 {
         switch(temp){
             case '+':
             case '-':
-            return 2;
+            return 1;
             case '*':
             case '/':
-            return 4;
+            return 3;
             case '^':
-            return 5;
+            return 6;
             case '(':
             return 0;
             default : 
