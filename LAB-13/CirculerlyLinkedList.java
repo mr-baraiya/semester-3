@@ -50,8 +50,8 @@ public class CirculerlyLinkedList{
         LAST.link = newNode;
         LAST = newNode;
         LAST.link = FIRST;
-        return;
     }
+
     public void deleteAtFirst(){
         if(FIRST == null){
             return;
@@ -106,8 +106,7 @@ public class CirculerlyLinkedList{
                 FIRST = FIRST.link;
                 LAST.link = FIRST;
                 return;
-            }
-            if(pos == count){
+            }else if(pos == count){
                 while (temp.link != LAST) {
                     temp = temp.link;
                 }
