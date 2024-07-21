@@ -14,3 +14,27 @@ public class DS_LAB_67 {
         list.display();
     }
 }
+/* public void addGCD(){
+        if(FIRST == null){
+            System.out.println("List is Empty.");
+            return;
+        }
+        Node next = FIRST.link;
+        Node prev = FIRST;
+        while(next != null){
+            int min = Math.min(next.data, prev.data);
+            int gcd = 1;
+            for(int i=min;i>0;i--){
+                if(next.data % i == 0 && prev.data % i == 0){
+                    gcd = i;
+                    break;
+                }
+            }
+            Node newNode = new Node(gcd);
+            prev.link = newNode;
+            newNode.link = next;
+            prev = next;
+            next = next.link;
+        }
+
+    } */

@@ -14,6 +14,7 @@ public class DS_LAB_66 {
         int k = sc.nextInt();
         swapKthNode(list,k);
         list.display();
+        sc.close();
     }
     public static void swapKthNode(LinkedList list , int k){
         Node temp = list.FIRST;

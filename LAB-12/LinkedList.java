@@ -233,7 +233,6 @@ public class LinkedList{
             prev = next;
             next = next.link;
         }
-
     }
     public void swapConsucativeNode(){
         if(FIRST == null || FIRST.link == null){
@@ -242,7 +241,7 @@ public class LinkedList{
         Node temp = FIRST;
         Node next = FIRST.link;
         Node prev = null;
-        while(temp.link != null){
+        while(next != null){
             temp.link = next.link;
             next.link = temp;
             if(temp == FIRST){
@@ -251,12 +250,30 @@ public class LinkedList{
                 prev.link = next;
             }
             prev = temp;
-
             temp = temp.link;
-            if(temp.link != null){
+            if(temp == null){
                 return;
             }
             next = temp.link;
+        }
+    }
+    public void removeDuplicates (){
+        if(FIRST == null || FIRST.link == null){
+            return;
+        }
+        Node temp = FIRST;
+        while(temp != null){
+            int data = temp.data;
+            Node temp2 = temp.link;
+            Node previus = temp;
+            while(temp2 != null){
+                if(temp2.data == data){
+                    previus.link = temp2.link;
+                }
+                previus = temp2;    
+                temp2 = temp2.link;
+            }
+            temp = temp.link;
         }
     }
 }
