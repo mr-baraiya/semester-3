@@ -53,7 +53,8 @@ public class DS_LAB_45{
         System.out.println("Enter the Infix Expression : ");
         String exp = sc.next();
         String res = revpol(exp);
-        System.out.println(res);
+        System.out.println("Postfix : "+res);
+        sc.close();
     }
 
     public static String revpol(String exp){

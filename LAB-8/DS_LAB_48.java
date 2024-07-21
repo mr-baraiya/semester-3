@@ -48,7 +48,7 @@ public class DS_LAB_48 {
 
     public static int evalPrefix(String prefix){
         Stack s = new Stack(prefix.length());
-        for(int i=prefix.length(); i>=0; i--) {
+        for(int i=prefix.length()-1; i>=0; i--) {
             char temp = prefix.charAt(i);
             if(Character.isDigit(temp)){
                 int digit = Integer.parseInt(String.valueOf(temp));

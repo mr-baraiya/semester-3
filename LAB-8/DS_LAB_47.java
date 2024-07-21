@@ -51,6 +51,7 @@ public class DS_LAB_47 {
         String postfix = sc.next();
         int res = evalPostfix(postfix);
         System.out.println("Result: " + res);
+        sc.close();
     }
 
     public static int evalPostfix(String postfix){
