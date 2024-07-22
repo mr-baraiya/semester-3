@@ -12,7 +12,7 @@ public class DS_LAB_72 {
         DoublyLinkedList list = new DoublyLinkedList();
         int temp,n;
         do{
-            System.out.println("0. Display all nodes.\n1. InsertAtFirst.\n2. DeleteAtposition.\n3. InsertAtLast.\n5. Exit");
+            System.out.println("0. Display all nodes.\n1. InsertAtFirst.\n2. DeleteAtposition.\n3. InsertAtLast.\n-1. Exit");
             System.out.println("Enter your choice: ");
             temp = sc.nextInt();
             switch(temp){
