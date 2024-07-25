@@ -36,6 +36,5 @@ public class DS_LAB_50 {
             }
         }
         System.out.println("Program Succesfully Complated.");
-        sc.close();
     }
 }
