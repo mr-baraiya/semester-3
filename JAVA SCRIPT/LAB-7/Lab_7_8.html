@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAB-7-8</title>
+</head>
+<body>
+    <script>
+        class Student{
+            name;
+            rollNo;
+            CPI;
+
+            constructor(name,rollNo,CPI){
+                this.name = name;
+                this.rollNo = rollNo;
+                this.CPI = CPI;
+            }
+            printStudentInfo = () => {
+                console.log(this.name);
+                console.log(this.rollNo);
+                console.log(this.CPI);
+            }
+        }
+        const s1 = new Student("Vishal Baraiya",103,9.12);
+        s1.printStudentInfo();
+        const s2 = new Student("Aum Faldu",102,9.72);
+        s2.printStudentInfo();
+    </script>
+</body>
+</html>

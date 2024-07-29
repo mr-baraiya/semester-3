@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAB-6-5</title>
+</head>
+<body style="display: flex; flex-direction: column; row-gap: 30px;">
+    <div>
+        <button id="modeChange" onclick="darkMode()">Dark Mode</button>
+    </div>
+    <div>
+        <input type="date" class="date">
+        <button onclick="date()">Toggle text/date</button>
+    </div>
+
+    <div>
+        <input type="password" class="password">
+        <button onclick="password()" id="btnPass">Show Password</button>
+    </div>
+
+    <script>
+        function darkMode() {
+            if(document.getElementById('modeChange').innerHTML === "Dark Mode") {
+                document.body.style.backgroundColor = "black";
+                document.getElementById('modeChange').innerHTML = "Light Mode";
+            }
+            else {
+                document.body.style.backgroundColor = "white";
+                document.getElementById('modeChange').innerHTML = "Dark Mode";
+            }
+        }
+
+        function date() {
+            var toggle = document.querySelector('.date');
+            if(toggle.type == 'date') {
+                toggle.type = 'text';
+            }
+            else {
+                toggle.type = 'date';
+            }
+        }
+
+        function password() {
+            var toggle = document.querySelector('.password');
+            if(toggle.type == 'password') {
+                toggle.type = 'text';
+                document.getElementById('btnPass').innerHTML = "Hide Password";
+            }
+            else {
+                toggle.type = 'password';
+                document.getElementById('btnPass').innerHTML = "Show Password";
+            }
+        }
+    </script>
+</body>
+</html>

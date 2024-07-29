@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAB-2-4</title>
+</head>
+<body>
+    <script>
+        let a = parseInt(prompt("Enter the first number : "));
+        let b = parseInt(prompt("Enter the sacond number : "));
+        let n1 = a;//6
+        let n2 = b;//12
+        while(b){//12,6
+            let temp = b;//12,6
+            b = a % b;//6 
+            a = temp;///12
+        }
+        document.write("GCD of "+n1+" and "+n2+" = "+a);
+    </script>
+</body>
+</html>

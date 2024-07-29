@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAB-2-6</title>
+</head>
+<body>
+    <script>
+        let n = prompt("Enter the number between ( 0 - 999 ) = ");
+        let flagmain = true;
+        let temp = n;
+        if(n < 0 || n > 999 ){
+            document.write("Out of Range.");
+            flagmain = false;
+        }
+        if(isNaN(n)){
+            document.write("Not a Number.");
+            flagmain = false;
+        }
+        if(flagmain){
+            let number = ["Zero","One","Two","Three","Four","Five","Six","Seven","Eight","Nine"];
+       
+            let tenty = ["Twenty","Thirty","Fourty","Fifty","Sixty","Seventy","Eighty","Ninety"];
+            let teen = ["Ten","Eleven","Twelve","Thirteen","Fourteen","Fifteen","Sixteen","Seventeen","Eighteen","Nineteen"];
+            let s = "";
+            let flag = true;
+            if(n>=100){
+                if(n%100===0){
+                    flag =false;
+                }
+                s += number[parseInt(n/100)]+" Hundred ";
+                n = parseInt(n%100);
+            }
+            if(n>=20){
+                if(n%10===0){
+                    flag =false;
+                }
+                s += tenty[parseInt(n/10)-2]+" ";
+                n = parseInt(n%10);
+            }
+            if(n>=10){
+                s += teen[parseInt(n-10)]+" ";
+                flag =false;
+            }
+            if(flag){
+                if(n>=0){
+                    s += number[parseInt(n)]+" ";
+                    n = parseInt();
+                }
+            }
+            document.write(temp+" = "+s);
+        }
+    </script>
+</body>
+</html>

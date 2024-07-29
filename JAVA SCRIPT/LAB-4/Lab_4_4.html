@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Lab-4-4</title>
+</head>
+<body>
+<script type="text/javascript">
+	let n = prompt("Enter total number of products : ");
+		let Products = [];
+		for(i=0;i<n;i++){
+		Products[i] = {
+			"name" : prompt("Enter name["+i+"] : "),
+			"price" : prompt("Enter price["+i+"] : "),
+			"brand" : prompt("Enter brand["+i+"] : ")
+		};
+		}
+	document.write("<table border=1>");
+	for(let i=0;i<Products.length;i++){
+			document.write("<tr>");
+			document.write("<td>"+Products[i].name+"</td>");
+			document.write("<td>"+Products[i].price+"</td>");
+			document.write("<td>"+Products[i].brand+"</td>");
+			document.write("</tr>");
+	}
+</script>
+</body>
+</html>

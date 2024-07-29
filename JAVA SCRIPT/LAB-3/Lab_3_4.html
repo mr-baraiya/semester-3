@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab-3-4</title>
+</head>
+<body>
+    <script>
+        let n = parseInt(prompt("Enter the size of an array : "));
+        let arr = new Array(n);
+        for(let i = 0 ; i<n ; i++){
+            arr[i] = parseInt(prompt("Enter the number in "+i+"th index = "));
+        }
+        let temp = [];
+        temp = quickSort(arr);
+        const quickSort = (arr) => {
+        if (arr.length <= 1) {
+            return arr;
+        }
+        let pivot = arr[0];
+        let leftArr = [];
+        let rightArr = [];
+
+        for (let i = 1; i < arr.length; i++) {
+            if (arr[i] < pivot) {
+            leftArr.push(arr[i]);
+            } else {
+            rightArr.push(arr[i]);
+            }
+        }
+        return [quickSort(leftArr), pivot, quickSort(rightArr)];
+        };
+        document.write("Sorted Array : "+"<br/>");
+        for(let i=0 ; i<n ; i++){
+            document.write(arr[i]+"<br/>");
+        }
+    </script>
+</body>
+</html>

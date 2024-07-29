@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAB-2-3</title>
+</head>
+<body>
+    <script>
+        let n = parseInt(prompt("Enter a number : "));
+        let i=0,j=0,k=0;
+        document.write("Pattern-1 <br/>");
+        for(i=1;i<=n;i++){
+            for(j=1;j<=i;j++){
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+        document.write("<br/>Pattern-2 <br/>");
+        for(i=1;i<=n;i++){
+            for(j=n;j>=i;j--){
+                document.write(" &nbsp;");
+            }
+            for(k=1;k<=i;k++){
+                document.write("* ");
+            }
+            document.write("<br>");
+        } 
+        document.write("<br/>Pattern-3 <br/>");
+        for(i=1;i<=n;i++){
+            for(j=n;j>=i;j--){
+                document.write(" &nbsp;");
+            }
+            for(k=1;k<=i;k++){
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+    </script>
+</body>
+</html>

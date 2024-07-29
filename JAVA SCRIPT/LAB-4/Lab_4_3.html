@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Lab-4-3</title>
+</head>
+<body>
+<script type="text/javascript">
+	let n = prompt("Enter total number of students : ");
+		let Students = [];
+		for(i=0;i<n;i++){
+		Students[i] = {
+			"name" : prompt("Enter name["+i+"] : "),
+			"surname" : prompt("Enter surname["+i+"] : "),
+			"rollNo" : prompt("Enter rollNo["+i+"] : ")
+		};
+		}
+	document.write("<table border=1>");
+	for(let i=0;i<Students.length;i++){
+			document.write("<tr>");
+			document.write("<td>"+Students[i].name+"</td>");
+			document.write("<td>"+Students[i].surname+"</td>");
+			document.write("<td>"+Students[i].rollNo+"</td>");
+			document.write("</tr>");
+	}
+</script>
+</body>
+</html>

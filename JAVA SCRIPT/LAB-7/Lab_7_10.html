@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAB-7-10</title>
+</head>
+<body>
+    <div>Press any mouse button : </div>
+    <div id="myDiv"></div>
+
+    <script>
+        function display(temp) {
+            document.querySelector('#myDiv').innerHTML = temp;
+        }
+        
+        document.addEventListener('click', (e) => {
+            let temp = "Left Clicked";
+            display(temp);
+        });
+
+        document.addEventListener('contextmenu', (e) => {
+            let temp = "Right Clicked";
+            display(temp);
+        });
+    </script>
+</body>
+</html>
