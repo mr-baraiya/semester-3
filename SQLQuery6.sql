@@ -165,23 +165,48 @@ SELECT REPLICATE('VISHAL',3);
 --Part – B: 
 --Perform following queries on Student table of practical no 5.
 
---1. Find the length of FirstName and LastName columns.
---2. Display FirstName and LastName columns in lower & upper case.
---3. Display first three characters of FirstName column.
---4. Display 3rd to 10th character of Website column.
---5. Write a query to display first 4 & Last 5 characters of Website column.
+--1.Find the length of FirstName and LastName columns.
+SELECT LEN(FIRSTNAME) AS LENGTH_OF_FIRSTNAME , LEN(LASTNAME) AS LENGTH_OF_LASTNAME FROM STUDENT;
+
+--2.Display FirstName and LastName columns in lower & upper case.
+SELECT LOWER(FIRSTNAME) AS FIRSTNAME_IN_LOWERCASE, LOWER(LASTNAME) AS LASTNAME_IN_LOWERCASE ,UPPER(FIRSTNAME) AS FIRSTNAME_IN_UPPERCASE,UPPER(LASTNAME) AS LASTNAME_IN_UPPERCASE FROM STUDENT;
+
+--3.Display first three characters of FirstName column.
+SELECT LEFT(FIRSTNAME,3) FROM STUDENT;
+
+--4.Display 3rd to 10th character of Website column.
+SELECT SUBSTRING(WEBSITE , 3, 10) FROM STUDENT;
+
+--5.Write a query to display first 4 & Last 5 characters of Website column.
+SELECT LEFT(WEBSITE , 4) AS FROM_STARTING, RIGHT(WEBSITE , 5) AS FROM_LAST FROM STUDENT;
 
 --Part – C: 
 --Perform following queries on Student table of practical no 5.
 
---1. Put 10 space before FirstName using function.
---2. Combine FirstName and LastName columns using + sign as well as CONCAT ().
---3. Combine all columns using + sign as well as CONCAT ().
---4. Find reverse of FirstName column.
---5. Repeat FirstName column 3 times
---6. Give the Names which contains 5 characters.
---7. Combine the result as <FirstName> Lives in <City>.
---8. Combine the result as Student_ID of < FirstName > is <StuID> .
+--1.Put 10 space before FirstName using function.
+SELECT SPACE(10) + FIRSTNAME FROM STUDENT;
+
+--2.Combine FirstName and LastName columns using + sign as well as CONCAT ().
+SELECT FIRSTNAME + LASTNAME FROM STUDENT;
+SELECT CONCAT(FIRSTNAME , LASTNAME) FROM STUDENT;
+
+--3.Combine all columns using + sign as well as CONCAT ().
+SELECT  FIRSTNAME + LASTNAME + WEBSITE + ADDRESS + CITY FROM STUDENT;
+
+--4.Find reverse of FirstName column.
+SELECT REVERSE(FIRSTNAME) FROM STUDENT;
+
+--5.Repeat FirstName column 3 times
+SELECT REPLICATE(FIRSTNAME , 3) FROM STUDENT;
+
+--6.Give the Names which contains 5 characters.
+SELECT * FROM STUDENT WHERE FIRSTNAME LIKE '_____';
+
+--7.Combine the result as <FirstName> Lives in <City>.
+SELECT FIRSTNAME +' '+ 'Lives In' +' '+ CITY AS RESULT FROM STUDENT;
+
+--8.Combine the result as Student_ID of < FirstName > is <StuID>.
+SELECT CONCAT('Student_ID',' ' , FIRSTNAME ,' ', 'is',' ' , STUID) AS RESULT FROM STUDENT ;
 
 --Date Functions
 --Part – A:
@@ -239,24 +264,58 @@ SELECT EOMONTH(GETDATE(),1);
 --14. Calculate your age in years and months.SELECT DATEDIFF(YEAR,'2006-04-02',GETDATE()) AS  MY_CURRENT_AGE_YEAR,DATEDIFF(MONTH,'2024-04-02',GETDATE()) AS MY_CURRENT_AGE_MONTH;--Part – B:
 --Create a table EMP_DETAIL and insert the following records in the table.
 
---EmpNo EmpName JoiningDate Salary City
---101 Keyur 15-1-02 12000.00 Rajkot
---102 Hardik 15-2-04 14000.00 Ahmedabad
---103 Kajal 14-3-06 15000.00 Baroda
---104 Bhoomi 23-6-05 12500.00 Ahmedabad
---105 Harmit 15-2-04 14000.00 Rajkot
---106 Jay 12-3-07 12000.00 Surat
---1. Write a query to find new date after 365 day with reference to JoiningDate.
---2. Display the JoiningDate in a format that appears as may 5 1994 12:00AM.
---3. Display the JoiningDate in a format that appears as 03 Jan 1995.
---4. Display the JoiningDate in a format that appears as Jan 04, 96.
---5. Write a query to find out total number of months between JoiningDate and 31-Mar-09.
---6. Write a query to find out total number of years between JoiningDate and 14-Sep-10.
+CREATE TABLE EMP_DETAIL(
+	EMPNO INT,
+	EMPNAME VARCHAR(15),
+	JOININGDATE DATETIME,
+	SALARY DECIMAL(8,2),
+	CITY VARCHAR(10)
+);
+
+SELECT * FROM EMP_DETAIL;
+
+INSERT INTO EMP_DETAIL VALUES(101 , 'KEYUR' , '02-01-15' , 12000 , 'RAJKOT');
+INSERT INTO EMP_DETAIL VALUES(102 , 'HARDIK' , '04-02-15' , 14000 , 'AHMEDABAD');
+INSERT INTO EMP_DETAIL VALUES(103 , 'KAJAL' , '06-03-14' , 12000 , 'RAJKOT');
+INSERT INTO EMP_DETAIL VALUES(104 , 'BHOOMI' , '05-06-23' , 12000 , 'RAJKOT');
+INSERT INTO EMP_DETAIL VALUES(105 , 'HARMIT' , '04-02-15' , 12000 , 'RAJKOT');
+INSERT INTO EMP_DETAIL VALUES(106 , 'JAY' , '07-03-12' , 12000 , 'RAJKOT');
+
+--1.Write a query to find new date after 365 day with reference to JoiningDate.
+SELECT DATEADD(D,365 , JOININGDATE ) AS New_Date_After_365_Days FROM EMP_DETAIL;
+
+--2.Display the JoiningDate in a format that appears as may 5 1994 12:00AM.
+SELECT FORMAT(JOININGDATE, 'MMMM d yyyy hh:mm tt') AS Formatted_Date  FROM EMP_DETAIL;
+
+--3.Display the JoiningDate in a format that appears as 03 Jan 1995.
+SELECT FORMAT(JOININGDATE, 'dd MMMM yyyy') AS Formatted_Date FROM EMP_DETAIL;
+
+--4.Display the JoiningDate in a format that appears as Jan 04, 96.
+SELECT FORMAT(JOININGDATE, 'MMMM d, yy') AS Formatted_Date FROM EMP_DETAIL;
+
+--5.Write a query to find out total number of months between JoiningDate and 31-Mar-09.
+SELECT DATEDIFF(MONTH ,'31-MAR-09' , JOININGDATE) AS NO_OF_MONTHS FROM EMP_DETAIL;
+
+--6.Write a query to find out total number of years between JoiningDate and 14-Sep-10.
+SELECT DATEDIFF(YEAR , '14-SEP-10',JOININGDATE) AS NO_OF_YEAR FROM EMP_DETAIL;
 
 --Part – C:
 
---1. Write a query to extract Day, Month, Year from JoiningDate.
---2. Write a query that adds 5 years to JoiningDate.
---3. Write a query to subtract 2 months from JoiningDate.
---4. Extract month from JoiningDate using datename () and datepart () function.
---5. Calculate your age in years and months
+--1.Write a query to extract Day, Month, Year from JoiningDate.
+SELECT DATENAME(DAY , JOININGDATE) AS NO_OF_DAY FROM EMP_DETAIL;
+SELECT DATENAME(MONTH , JOININGDATE) AS NO_OF_MONTH FROM EMP_DETAIL;
+SELECT DATENAME(YEAR , JOININGDATE) AS NO_OF_YEAR FROM EMP_DETAIL;
+
+--2.Write a query that adds 5 years to JoiningDate.
+SELECT DATEADD(YEAR, 5 , JOININGDATE) AS FIVE_YEARS_ADDED FROM EMP_DETAIL;
+
+--3.Write a query to subtract 2 months from JoiningDate.
+SELECT DATEDIFF(MONTH , 02 , JOININGDATE) AS TWO_MONTH_SUBTRACTED FROM EMP_DETAIL;
+
+--4.Extract month from JoiningDate using datename () and datepart () function.
+SELECT DATENAME(DAY , JOININGDATE) AS MONTH_ FROM EMP_DETAIL;
+SELECT DATEPART(DAY , JOININGDATE) AS MONTH_ FROM EMP_DETAIL;
+
+--5.Calculate your age in years and months
+SELECT DATEDIFF(YEAR , '2006-3-16' , GETDATE());
+SELECT DATEDIFF(MONTH , '2006-3-16' , GETDATE());
