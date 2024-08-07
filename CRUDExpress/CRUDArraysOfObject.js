@@ -49,6 +49,10 @@ app.put('/students/:id',(req,res)=>{
     students[ans] = req.body;
     res.send("Updated Successfully.");
 });
+/*
+    const ans = students.findIndex(stu => stu.id == req.params.id);
+    students[ans] = {...students[ans],...data};
+ */
 //delete
 app.delete('/students/:id',(req,res)=>{
     const idx = students.findIndex(stu => stu.id == req.params.id);
