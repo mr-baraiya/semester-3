@@ -12,13 +12,19 @@ public class DS_LAB__92_BubbleSort{
         if(arr.length == 0 || arr.length == 1){
             return arr;
         }
+        int exchs = 0;
         for(int i = 0; i < arr.length; i++){
             for(int j = 0; j < arr.length-i-1; j++){
                 if(arr[j] > arr[j + 1]){
                     int temp = arr[j];
                     arr[j] = arr[j+1];
                     arr[j+1] = temp;
+                    exchs++;
                 }
+            }
+            if(exchs == 0){
+                System.out.println("Array is already sorted.");
+                return arr;
             }
         }
         return arr;
