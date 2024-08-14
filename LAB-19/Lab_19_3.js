@@ -24,6 +24,6 @@ app.post('/',(req,res)=>{
     res.send(`Hello from Post method.`);
 });
 const port = 3000;
-app.listen(port,()=>{
+app.listen(3000,()=>{
     console.log(`Server Listen At ${port} : `);
 });
