@@ -1,6 +1,6 @@
 //96. Write a program to implement Merge Sort using Array
 public class DS_LAB_96_MergeSort {
-    static int [] arr = {12,34,56,32,12,45,76,98,65,90};                                                                                               
+    static int [] arr = {};
     public static void main(String[] args) {
         if(arr.length == 0){
             System.out.println("Array is empty.");
