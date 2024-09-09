@@ -23,7 +23,7 @@ public class DS_LAB_94_SelectionSort {
                 int temp = arr[minIdx];
                 arr[minIdx] = arr[i];
                 arr[i] = temp;
-            }
+            } 
         } 
         return arr;
     }
