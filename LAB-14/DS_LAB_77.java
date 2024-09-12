@@ -25,20 +25,20 @@ public class DS_LAB_77 {
                 case 2:
                     System.out.print("Enter the value to be deleted: ");
                     int del = sc.nextInt();
-                    bst.delete(del);
+                    bst.delete(bst.root , del);
                     break;
                 case 3:
                     System.out.print("Enter the value to be searched: ");
                     int search = sc.nextInt();
                     if(bst.search(search)){
-                        System.out.println("Node found");
+                        System.out.println("found Succesfully!");
                     }else{
                         System.out.println("Node not found");
                     }
                     break;
                 case 0:
                     System.out.println();
-                    bst.displayTree(bst.root);
+                    bst.inTraverse(bst.root);
                     System.out.println();
                     break;
                 case -1:
@@ -49,7 +49,6 @@ public class DS_LAB_77 {
         }
     }
 }
-
 class Node{
     int key;
     Node left, right;
@@ -64,7 +63,6 @@ class BST{
     public BST(){
         root = null;
     }
-
     //insert operation 
     public void insert(int data){
         root = insertRecord(root, data);
@@ -81,7 +79,6 @@ class BST{
         }
         return root;
     }
-
     //Serch Opration
     public boolean search(int key){
         return searchRecord(root, key);
@@ -97,36 +94,83 @@ class BST{
             return searchRecord(root.left, data);
         }
     }
-
     //delete a node
-    public void delete(int data){
-        if (root == null){
-            return;
+    public Node delete(Node root , int data) {
+        if(root == null) {
+            return root;
         }
+        if(data < root.key) {
+            root.left = delete(root.left, data);
+        }
+        else if(data == root.key) {
+            if(root.left == null && root.right == null) {
+                return null;
+            }
+            else if(root.left == null) {
+                return root.right;
+            }
+            else if(root.right == null) {
+                return root.left;
+            }
+            else {
+                Node temp = root.right;
 
-        if (root.left == null && root.right == null) {
-            if (root.key == data){
-                root = null;
-                return;
-            }
-            else{
-                return;
+                while(temp.left != null) {
+                    temp = temp.left;
+                }
+
+                temp.left = root.left;
+                return root.right;
             }
         }
+        else {
+            root.right = delete(root.right, data);
+        }
+        return root;
     }
     //inorder traversal for display
-    public void displayTree(Node temp){
-        if(temp == null){
+    public void inTraverse(Node root){
+        if(root == null){
             System.out.println("Tree is Emnpty.");
             return;
         }
-        if(temp.left != null){
-            displayTree(temp.left);
+        if(root.left != null){
+            inTraverse(root.left);
         }
-        System.out.print(temp.key+" ");
-        if(temp.right != null){
-            displayTree(temp.right);
+        System.out.print(root.key+" ");
+        if(root.right != null){
+            inTraverse(root.right);
         }
+    } 
+
+    //Preorder traversal for display
+    public void preTraverse(Node root){
+        if(root == null){
+            System.out.println("Tree is Emnpty.");
+            return;
+        }
+        System.out.print(root.key+" ");
+        if(root.left != null){
+            inTraverse(root.left);
+        }
+        if(root.right != null){
+            inTraverse(root.right);
+        }
+    } 
+
+    //Postorder traversal for display
+    public void postTraverse(Node root){
+        if(root == null){
+            System.out.println("Tree is Emnpty.");
+            return;
+        }
+        if(root.left != null){
+            inTraverse(root.left);
+        }
+        if(root.right != null){
+            inTraverse(root.right);
+        }
+        System.out.print(root.key+" ");
     } 
 }
 
