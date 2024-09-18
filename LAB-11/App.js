@@ -28,6 +28,11 @@ const faculty = [
     name : "Dr. Pradyumansinh Jadeja",
     subject : "DSA",
     img : "https://du-website.s3.ap-south-1.amazonaws.com/U01/Faculty-Photo/6---28-04-2023-02-06-07.jpg"
+  },{
+    id : 104,
+    name : "Prof. Vijay Shekhat",
+    subject : "WD",
+    img : "https://du-website.s3.ap-south-1.amazonaws.com/U01/Faculty-Photo/16---28-04-2023-02-08-00.jpg"
   }
 ];
 
@@ -44,7 +49,7 @@ const facultyElemants = faculty.map((temp)=>{
 
 function App() {
   return (
-    <table border={3}>
+    <table border={3} cellPadding={10} cellSpacing={2} style={{margin : "auto",marginTop : "100px"}}>
       <tr>
         <th>ID</th>
         <th>Faculty Name</th>
