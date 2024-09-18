@@ -37,7 +37,7 @@ const facultyElemants = faculty.map((temp)=>{
       <td>{temp.id}</td>
       <td>{temp.name}</td>
       <td>{temp.subject}</td>
-      <td><image src={temp.img} height={100} width={100}/></td>
+      <td><img src={temp.img} height={100} width={100}/></td>
     </tr>
   );
 });
@@ -49,6 +49,7 @@ function App() {
         <th>ID</th>
         <th>Faculty Name</th>
         <th>Faculty Subject</th>
+        <th>Picture</th>
       </tr>
       {facultyElemants}
     </table>
