@@ -1,16 +1,11 @@
 // 85. Write a program to create a graph & implement the adjacency list
-// representation of the graph
-//  Apply DFS and BFS on the given graph.
+
 import java.util.*;
 
 public class DS_LAB_85{
     public static void main(String args[]){
-        // Object of graph is created.
         Graph<Integer> g = new Graph<Integer>();
 
-        // edges are added.
-        // Since the graph is bidirectional,
-        // so boolean bidirectional is passed as true.
         g.addEdge(0, 1, true);
         g.addEdge(0, 4, true);
         g.addEdge(1, 2, true);
@@ -19,19 +14,14 @@ public class DS_LAB_85{
         g.addEdge(2, 3, true);
         g.addEdge(3, 4, true);
 
-        // Printing the graph
         System.out.println("Graph:\n" + g.toString());
 
-        // Gives the no of vertices in the graph.
         g.getVertexCount();
 
-        // Gives the no of edges in the graph.
         g.getEdgesCount(true);
 
-        // Tells whether the edge is present or not.
         g.hasEdge(3, 4);
 
-        // Tells whether vertex is present or not
         g.hasVertex(5);
         g.neighbours(1);
         System.out.println();
