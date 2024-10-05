@@ -9,14 +9,11 @@ const Layout = ()=>{
                     <div className="col-2 border border-dark rounded p-3 d-flex justify-content-center bg-primary-subtle">
                         <h2>Vi.685</h2>
                     </div>
-                    <div className="col border border-dark rounded p-2 ms-2 bg-primary-subtle">
-                        <nav className="navbar navbar-expand-lg d-flex justify-content-end">
+                    <div className="col border border-dark rounded p-2 ms-2 bg-primary-subtle d-flex justify-content-end align-items-center">
+                        <nav className="navbar navbar-expand-lg">
                             <ul className="navbar-nav mr-auto">
                                 <li className="nav-item active mx-3">
                                     <Link className="link text-decoration-none" to="/" >Home</Link>
-                                </li>
-                                <li className="nav-item active mx-3">
-                                    <Link className="link text-decoration-none" to="/service" >Service</Link>
                                 </li>
                                 <li className="nav-item active mx-3">
                                     <Link className="link text-decoration-none" to="/about" >About US</Link>
@@ -24,12 +21,15 @@ const Layout = ()=>{
                                 <li className="nav-item active mx-3">
                                     <Link className="link text-decoration-none" to="/contact" >Contact Us</Link>
                                 </li>
+                                <li className="nav-item active mx-3">
+                                    <Link className="link text-decoration-none btn btn-primary btn-sm" to="/addeditstudent" >New Admission</Link>
+                                </li>
                             </ul>
                         </nav>
                     </div>
                 </div>
                 <div className="row my-2 p-2 border border-dark rounded bg-secondary-subtle">
-                    <div className="col-3 border border-dark rounded p-2 d-flex justify-content-center align-items-center bg-info">
+                    <div className="col-3 text-light fs-5 border border-dark rounded p-2 d-flex justify-content-center align-items-center bg-info">
                         SIDEBAR
                     </div>
                     <div className="col ms-2 border border-dark rounded p-2 bg-info-subtle">

@@ -3,7 +3,6 @@ import Layout from './pages/Layout';
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
-import Service from './pages/Service';
 import StudentDetails from './pages/StudentDetails';
 import AddEdit from './pages/AddEdit';
 
@@ -14,7 +13,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path='/service' element={<Service />} />
             <Route path='/about' element={<About />} />
             <Route path='/contact' element={<Contact />} />
             <Route path='/studentdetails/:id' element={<StudentDetails />} />

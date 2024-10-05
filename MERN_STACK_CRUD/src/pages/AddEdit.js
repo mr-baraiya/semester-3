@@ -63,7 +63,7 @@ const AddEdit = () => {
                     </div>
                 </div>
                 <div className="row mt-3">
-                    <div className="col d-flex justify-content-center">
+                    <div className="col-6 d-flex justify-content-end">
                         {/* for edit student */}
                         {isForEdit && (
                             <button className="btn btn-primary" onClick={()=>{
@@ -98,6 +98,19 @@ const AddEdit = () => {
                                 });
                             }}>Submit</button>
                         )}
+                    </div>
+                    <div className="col d-flex justify-content-start">
+                        <button className="btn btn-warning" onClick={()=>{
+                            setData({
+                                ...data,
+                                id : '',
+                                name : '',
+                                spi : '',
+                                sem : '',
+                                contact : '',
+                                img : ''
+                            });
+                        }}>Reset</button>
                     </div>
                 </div>
             </div>

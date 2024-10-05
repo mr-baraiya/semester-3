@@ -19,9 +19,9 @@ const Home = ()=>{
     return (
         <> 
             <div className="container">
-                <div className="row my-2">
-                    <div className="col">
-                        <Link className="btn btn-primary" to='/addeditstudent'>New Admission</Link>
+                <div className="row mt-2 mb-4 border border-dark rounded-3">
+                    <div className="col d-flex justify-content-center">
+                        <h4>Students List</h4>
                     </div>
                 </div>
                 <div className="row">
